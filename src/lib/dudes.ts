@@ -1,9 +1,6 @@
-import { Barbarian } from './hero.js';
+import { Barbarian } from "./hero.js";
 
 const conan = new Barbarian();
 const reuben = new Barbarian(`Reuben`);
 
-export {
-  conan,
-  reuben,
-}
+export { conan, reuben };

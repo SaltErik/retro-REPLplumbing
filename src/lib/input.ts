@@ -1,8 +1,8 @@
-import { terminal } from './terminal.js';
-import { stdout, wipe } from './view.js';
-import { conan, reuben } from './dudes.js';  // They may, in fact, be used by the eval
+import { terminal } from "./terminal.js";
+import { stdout, wipe } from "./view.js";
+import { conan, reuben } from "./dudes.js"; // They may, in fact, be used by the eval
 
-const parse = (string) => {
+const parse = (string: string) => {
   if (string.trim() === `cls` || string === `clear`) {
     wipe();
   }
@@ -14,12 +14,15 @@ const parse = (string) => {
 };
 
 const enter = () => {
-  const index = terminal.innerText.lastIndexOf('\n');
+  if (!terminal) throw new ReferenceError(`Terminal is null!`);
+  const index = terminal.innerText.lastIndexOf("\n");
 
-  if (index === -1) { // No newline found
+  if (index === -1) {
+    // No newline found
     console.dir(`Would have ran: ${terminal.innerText}`);
     parse(terminal.innerText);
-  } else { // Newline found!
+  } else {
+    // Newline found!
     const command = terminal.innerText.substring(index);
     console.dir(`Would have ran: ${command}`);
     parse(command);
@@ -29,12 +32,14 @@ const enter = () => {
 };
 
 const backspace = () => {
+  if (!terminal) throw new ReferenceError(`Terminal is null!`);
   if (!terminal.innerText.endsWith(`\n`)) {
     terminal.innerText = terminal.innerText.slice(0, -1);
   }
 };
 
-const processInput = (key) => {
+const processInput = (key: string) => {
+  if (!terminal) throw new ReferenceError(`Terminal is null!`);
   switch (key) {
     case `Enter`:
       return enter();
@@ -45,10 +50,8 @@ const processInput = (key) => {
     case `Shift`:
       return;
     default:
-      return terminal.innerText += `${key}`;
+      return (terminal.innerText += `${key}`);
   }
 };
 
-export {
-  processInput,
-}
+export { processInput };

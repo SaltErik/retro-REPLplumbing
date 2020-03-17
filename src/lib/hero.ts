@@ -1,12 +1,12 @@
-import { stdout } from './view.js';
+import { stdout } from "./view.js";
 
 class Barbarian {
-
-  constructor(name=`Conan`) {
+  name: string;
+  constructor(name = `Conan`) {
     this.name = name;
   }
 
-  attack(foe) {
+  attack(foe: any) {
     stdout(`${this.name} attacks ${foe.name}!`);
   }
 
@@ -15,6 +15,4 @@ class Barbarian {
   }
 }
 
-export {
-  Barbarian,
-}
+export { Barbarian };
