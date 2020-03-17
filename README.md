@@ -2,11 +2,9 @@
 A minimally-functioning retro-terminal for the web.
 
 # setup
-git clone
-
-npm i
-
-npm run dev
+1. git clone
+2. npm i
+3. npm run dev
 
 ![github-small](https://raw.githubusercontent.com/SaltErik/retro-REPLplumbing/master/preview.png)
 
