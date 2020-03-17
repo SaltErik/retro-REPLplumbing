@@ -1,7 +1,8 @@
 # retro-REPLplumbing
 A minimally-functioning retro-terminal for the web.
 
-# setup
+## setup
+
 1. git clone
 2. npm i
 3. npm run dev
